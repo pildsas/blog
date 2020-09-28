@@ -1,0 +1,60 @@
+<div class="box__nav">
+   <div class="navbar__brand">
+   {# {% if app.user %}
+   {{ profile.firstname }}
+   {% else %}
+     Blog
+   {% endif %} #}
+   Blog
+   </div>
+   <div class="navbar__toggler">
+      <span></span>
+      <span></span>
+      <span></span>
+   </div>
+   <div class="navbar__links">
+      <ul class="links__left">
+         <li class="links__link"><a href="{{ path('main_page') }}">Home</a></li>
+       {% if app.user %}
+         {# <li class="links__link"><a href="{{ path('create_post') }}">Post</a></li> #}
+      {% endif %}
+      
+      </ul>
+      <ul class="links__right">
+
+  
+
+      {# IF NOT LOGGED IN #}
+       {% if not app.user %}
+         <li class="links__link"><a href="{{ path('register') }}">Register</a></li>
+         <li class="links__link"><a href="{{ path('login') }}">Sign In</a></li>
+      {% endif %}
+
+      {# IF LOGGED IN #}
+      {% if app.user %}
+            <li class="links__link"><a href="{{ path('profile_page', {profile : app.user.getProfile().getId()}) }}">
+            {% if app.user and app.user.getProfile().firstname %}
+               {{app.user.getProfile().firstname}}
+            {% else %}
+               Profile
+            {% endif %}
+            </a></li>
+            <li class="links__link"><a href="{{ path('logout') }}">Logout</a></li>
+      {% endif %}
+
+      <li class="box__browse">
+         <div class="input-group__browse">
+            <input type="text" value="" placeholder="Browse" class="input__search" id="input__search" autocomplete="off" spellcheck="false"/>
+            <i class="fa fa-search icon__search"></i>
+         </div>
+      </li>
+
+      </ul>
+   </div>
+</div>
+
+
+
+
+
+   

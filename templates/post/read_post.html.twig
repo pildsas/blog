@@ -1,0 +1,149 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+
+ <link rel="stylesheet" href="{{ asset('build/post_page.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+  <div class="box__main-content" profile="{{ profile.getId() }}">
+   <div class="overlay__main-content"></div>
+
+            <div class="box__main-post" post="{{ post.id }}">
+
+             
+
+               <div class="post__wallpaper">
+                  <img src="{{ post.getHeaderCoverLink() }}" alt="" class="img__wallpaper">
+               </div>
+
+               {# POST HEADER #}
+               <div class="post__header">
+                  <div class="header__row">
+                     <div class="post__title">{{ post.title}}</div>
+                  </div>
+
+                  <div class="header__row">
+                     <div>
+                        <span>by</span>
+                        <a href="{{ path('profile_page', {profile: profile.getId()}) }}" class="post__author">{{post.author.firstname}}</a>
+                     </div>
+                     <div class="post__created-at">{{ post.createdat|ago }}</div>
+                  </div>
+
+                  <div class="header__row">
+                     <div class="post__feedback">
+                        <div class="feedback__likes">
+                           <i class="far fa-thumbs-up toogle_likes 
+                           {% if state == "disliked" %}state__disabled{% endif %}
+                           {% if state == "liked" %}state__active{% endif %}
+                           " state="{{ state }}">
+                           </i>
+                           <span class="counter__likes trigger__modal">({{ post.like.count() }})</span>
+                        </div>
+                        <div class="feedback__dislikes">
+                           <i class="far fa-thumbs-down toogle_likes
+                           {% if state == "liked" %}state__disabled{% endif %}
+                           {% if state == "disliked" %}state__active{% endif %}
+                           " state="{{ state }}">
+                           </i>
+                           <span class="counter__dislikes trigger__modal">({{ post.dislike.count() }})</span>
+                        </div>
+                        <div class="feedback__comments">
+                           <i class="far fa-comment"></i>
+                           <span>({{ post.comments.count() }})</span>
+                        </div>
+                     </div>
+                     <div class="post__tags">
+                        {% for tag in post.tags %}
+                           <div class="post__tag" tag="{{ tag.id }}">#{{ tag.name}}</div>
+                        {% endfor %}
+                     </div>        
+                  </div>
+
+               </div>
+               {# END POST HEADER #}
+
+               {# POST BODY #}
+               <div class="post__body">
+                  <div class="post__text">{{ post.body }}</div>
+               </div>
+               {# END POST BODY #}
+         
+               {# POST FOOTER #}
+               <div class="post__footer">
+                  <div class="footer__header text__comment-count">Comments ({{post.getComments().count()}})</div>
+                  <div class="box__comments">
+
+                     {# AUTHOR INPUT #}
+                     <div class="comments__author-input">
+
+                        <div class="box__row">
+                           <div class="comment_profile-img">
+                              <img src="
+                              {% if app.user %}
+                              {{ app.user.getProfile().getAvatar()}}
+                              {% else %}
+                              /img/defaults/profile.png
+                              {% endif %}" alt="" width="40" class="img_comment-profile">
+                           </div>
+                        </div>
+                      
+                        <div class="box__row">
+                           <div class="box__input">     
+                              <textarea name="" placeholder="Write a comment..." class="input__comment" ></textarea>
+                              <input type="file" id="comment-input__comment-image" class="input__comment-image">
+                              <label for="comment-input__comment-image" class="label__file">
+                                 <i class="far fa-images"></i>
+                              </label>   
+                           </div>
+                     </div>
+                     
+
+                     <div class="box__row">
+                        <div class="comment__image-preview" id="comment__image-preview">
+                           <img src="" alt="Image Preview" class="image-preview__image" id="comment-image-preview__image">
+                            <div class="comment__image-clear" id="comment__image-clear">
+                              <i class="fas fa-times"></i>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="box__row">
+                        <div class="text__enter">
+                           <span>Press Enter to post.</span>
+                        </div>
+                     </div>
+
+
+          
+
+                  </div>
+
+                  {# USER COMMENTS #}
+                  <div class="comments__comments"></div>
+
+               </div>
+               {# END BOX COMMENTS #}
+               
+               </div>
+               {# END POST FOOTER #}
+         
+            </div>
+
+             
+          
+         
+
+  </div>
+      <div id="box__modal"></div> 
+       <div id="box__modal-secondary"></div>   
+       <div id="box__modal-third"></div>   
+
+{% endblock %}
+
+{% block javascripts %}
+   <script src="{{ asset('build/post.js') }}"></script>
+{% endblock %}

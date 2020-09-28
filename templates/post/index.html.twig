@@ -1,0 +1,78 @@
+{% extends "base.html.twig" %}
+
+
+{% block stylesheets %}
+
+ <link rel="stylesheet" href="{{ asset('build/post.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class="form__create-post">
+
+    <div class="input-group__cover">
+
+         <div class="post-cover__label">Cover Image</div>
+
+         <label for="input__cover" class="post-cover__btn-upload">
+            <i class="fas fa-image"></i>
+         </label>
+
+         <div class="post-cover__btn-clear">
+            <i class="fas fa-times"></i>
+         </div>
+
+           <div class="post-cover__cover-preview">
+               <img src="" alt="Cover Preview" class="cover-preview__image">
+               <span class="cover-preview__text">Preview Image</span>
+            </div>
+
+         <input type="file" class="input-group__input input__cover" id="input__cover">
+
+      </div>
+
+
+      <div class="input-group">
+         <label for="title">Title</label>
+         <input type="text" class="input-group__input input__title">
+      </div>
+
+
+      {# TAGS #}
+      <div class="input-group__tags">
+         <div class="tags__create">
+               <input id="input__tag"> 
+            </div>
+
+            <div class="tags__selected"> 
+            </div>
+
+         
+      </div>
+
+
+      <div class="input-group">
+         <label for="folder">Folder</label>
+         <div class="input__folder" id="input__folder"></div>
+      </div>
+
+      <div class="input-group">
+         <label for="name">Text</label>
+         <textarea name="" id="" cols="30" rows="10" class="input-group__input input__text"></textarea>
+      </div>
+
+
+      <button type="submit" class="form__submit">Post</button>
+
+</div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script type="module" src="{{ asset('build/form_post.js') }}"></script>
+{% endblock %}
+
+
+

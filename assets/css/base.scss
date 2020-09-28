@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap");
+@import "./variables";
+@import "./nav.scss";
+@import "./pagination.scss";
+@import "./modals.scss";
+@import "./overlay.scss";
+@import "./dropdown.scss";
+
+html {
+   overflow-y: scroll;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: $font-1;
+}
+
+ul > li {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+}
+
+body {
+   background: $color__grey-2;
+}
+
+.box__container {
+   max-width: 900px;
+   margin: auto;
+   display: grid;
+   grid-template-columns: 1fr;
+   row-gap: 10px;
+}

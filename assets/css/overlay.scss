@@ -1,0 +1,34 @@
+@import "./variables";
+
+/*
+z-index:
+
+overlay__modal-item 19
+overlay__post 20
+post__icon 21  
+dropdown 21
+overlay 40
+overlay__main-content 40
+*/
+
+.overlay {
+   position: fixed;
+   top: 0;
+   right: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+   z-index: 40;
+   display: none;
+}
+
+.overlay__main-content {
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+   z-index: 40;
+   display: none;
+}

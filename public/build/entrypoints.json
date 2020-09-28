@@ -1,0 +1,69 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/app.js"
+      ]
+    },
+    "index": {
+      "js": [
+        "/build/index.js"
+      ]
+    },
+    "profile": {
+      "js": [
+        "/build/profile.js"
+      ]
+    },
+    "post": {
+      "js": [
+        "/build/post.js"
+      ]
+    },
+    "register": {
+      "js": [
+        "/build/register.js"
+      ]
+    },
+    "login": {
+      "js": [
+        "/build/login.js"
+      ]
+    },
+    "form_post": {
+      "js": [
+        "/build/form_post.js"
+      ]
+    },
+    "base": {
+      "css": [
+        "/build/base.css"
+      ]
+    },
+    "index_page": {
+      "css": [
+        "/build/index_page.css"
+      ]
+    },
+    "profile_page": {
+      "css": [
+        "/build/profile_page.css"
+      ]
+    },
+    "login_page": {
+      "css": [
+        "/build/login_page.css"
+      ]
+    },
+    "register_page": {
+      "css": [
+        "/build/register_page.css"
+      ]
+    },
+    "post_page": {
+      "css": [
+        "/build/post_page.css"
+      ]
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Landing page{% endblock %}
+{% block stylesheets %}
+   <link rel="stylesheet" href="{{ asset('build/index_page.css') }}">
+{% endblock %}
+
+{% block body %}
+
+      <div class="box__main-content" profile="{% if app.user %}{{ profile.getId() }}{% endif %}">
+
+         <div class="overlay__main-content"></div>
+
+      {# BROWSE #}
+         <div class="main-content__header accordion__trigger">
+            <div class="header__text">Browse</div> 
+            <i class="fas fa-chevron-down header__icon"></i>  
+         </div>
+
+         <div class="main-content__content accordion__content" id="main-content__tags">
+            <div class="content__control">
+               <div class="content__sort" id="tags__sort"></div>
+            </div>
+            <div class="content__tags" id="content__tags"></div>
+            <div class="content__paginator" id="tags__paginator"></div>
+         </div>
+
+
+         <div class="main-content__header accordion__trigger">
+            <div class="header__text" id="header__posts">Users Posts</div> 
+            <i class="fas fa-chevron-down header__icon"></i>  
+         </div>
+
+         <div class="main-content__content accordion__content" id="main-content__posts">
+            <div class="content__control">
+               <div class="content__sort" id="posts__sort"></div>
+            </div>
+            <div class="content__posts" id="content__posts"></div>
+            <div class="content__paginator" id="posts__paginator"></div>
+         </div>
+
+      {# FOLLOWED #}
+         {% if app.user %}
+         <div class="main-content__header accordion__trigger">
+            <div class="header__text" id="header__following">Following</div> 
+            <i class="fas fa-chevron-down header__icon"></i>  
+         </div>
+
+         <div class="main-content__content accordion__content" id="main-content__followed">
+            <div class="content__control">
+               <div class="content__sort" id="follow__sort"></div>
+            </div>
+            <div class="content__posts" id="content__follow"></div>
+            <div class="content__paginator" id="follow__paginator"></div>
+         </div>
+      {% endif %}
+
+ 
+
+<div class="modals">
+  <div id="box__modal"></div>   
+  <div id="box__modal-secondary"></div>   
+  <div id="box__modal-third"></div>  
+
+</div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+   <script src="{{ asset('build/index.js') }}"></script>
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@tarekraafat/autocomplete.js": "^7.2.0"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.30.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

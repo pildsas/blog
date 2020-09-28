@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('build/base.css') }}">
+      {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css"> #}
+        <script src="https://kit.fontawesome.com/193187977c.js" crossorigin="anonymous"></script>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+    <div class="box__container">
+  
+          {{ include('./includes/nav/_nav.html.twig') }}
+
+        {% block body %}
+     
+        {% endblock body %}
+    </div> 
+    <script src="{{ asset('build/app.js') }}"></script>
+        {% block javascripts %}{% endblock javascripts %}
+    </body>
+</html>

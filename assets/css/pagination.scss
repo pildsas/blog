@@ -1,0 +1,64 @@
+@import "./variables";
+
+.box_pagination {
+   .pagination_panel {
+      position: relative;
+      text-align: center;
+      padding: 10px 0;
+      // z-index: 6;
+      display: flex;
+      align-items: center;
+      .pagination_item {
+         border: 2px solid $color_pag_1;
+         color: $color_pag_1;
+         text-transform: uppercase;
+         font-size: 14px;
+         text-decoration: none;
+         margin: 0 3px;
+         height: 38px;
+         min-width: 38px;
+         border-radius: 38px;
+         line-height: 38px;
+         padding: 0;
+         font-weight: 700;
+         letter-spacing: 0.03em;
+         display: none;
+         cursor: pointer;
+         &:hover {
+            background-color: $color_pag_2;
+            color: $color_pag_1;
+         }
+      }
+      .pagination_display {
+         display: inline-block !important;
+      }
+      .pagination_item.pagination_control {
+         padding: 0 16px;
+         margin: 0 12px;
+      }
+      .pagination_display {
+         display: inline-block !important;
+      }
+      .pagination_pages {
+         display: flex;
+         align-items: center;
+         .pagination_item.active {
+            background-color: $color_pag_2;
+            color: $color_pag_1;
+         }
+         .pagination_dots {
+            display: inline-block;
+            pointer-events: none;
+            color: transparent;
+            border-color: transparent;
+            width: 50px;
+            &:after {
+               content: "...";
+               color: $color_pag_1;
+               font-size: 32px;
+               margin-left: -6px;
+            }
+         }
+      }
+   }
+}

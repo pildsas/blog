@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile Page{% endblock %}
+
+{% block stylesheets %}
+   <link rel="stylesheet" href="{{ asset('build/profile_page.css') }}">
+{% endblock %}
+
+{% if app.user %}
+   {% if app.user.getId() == profile.getUser().getId() %}
+      {% set btn_state = 'btn__disabled' %}
+   {% else %}
+      {% set btn_state = 'btn__active' %}
+   {% endif %}
+{% else %}
+   {% set btn_state = 'btn__active' %}
+{% endif %}
+
+
+{% block body %}
+    
+         <div class="box__main-content" profile="{{ profile.getId() }}">
+         <div class="overlay__main-content"></div>
+
+         {# AUTHOR #}
+         <div class="main-content__header accordion__trigger" id="header__author">
+            <div class="header__text">Author</div> 
+            <i class="fas fa-chevron-down header__icon"></i>  
+         </div>
+
+         <div class="main-content__author accordion__content" id="main-content__author">
+
+         <div class="box__author">
+            <div class="box__column">
+                <img src="{{ profile.getAvatar() }}" alt="" class="author__img"> 
+            </div>
+
+            <div class="box__column">
+               <div class="author__name">{{ profile.getFirstname() }} {{ profile.getLastname() }}</div>
+               <div class="author__alias">
+               {% if profile.getNickname() %}
+               @{{ profile.getNickname() }}    
+               {% endif %}
+               </div>
+
+               <div class="author__about">{{ profile.getAbout() }}</div>
+               <div class="author__footer">
+
+               <div class="footer__posts">
+               <span>following</span>
+               <span class="following__counter">{{ profile.getFollowing().count() }}</span>
+               </div>
+
+
+
+               <button class="btn__follow {{ btn_state}} {% if follow %}remove__follower{% else %}add__follower{% endif %}
+               {% if profile.getUser() == app.user %} btn__disabled {% endif %}
+               ">{% if follow %}Unfollow{% else %}Follow{% endif %}</button>
+
+               <div class="footer__followers">
+               <span>followers</span>
+               <span class="followers__counter">{{followers_count}}</span>
+               </div>
+
+               </div> 
+            </div>
+
+        
+      
+
+         {% if app.user %}
+            {% if app.user.getId() == profile.getUser().getId() %}
+               <i class="fas fa-cog" id="icon__profile-edit"></i>
+            {% endif %}
+         {% endif %}
+       
+
+      
+
+         </div>
+
+      </div>
+
+
+       <!-- FOLDERS -->
+            <div class="main-content__header accordion__trigger">
+               <div class="header__text" id="header__folders">Folders ({{ profile.getFolders().count() }})</div> 
+               <i class="fas fa-chevron-down header__icon"></i>  
+            </div>
+
+            <div class="main-content__content accordion__content" id="main-content__folders">
+
+               <div class="content__control">
+                  <div class="content__add" id="folders_create">
+                      <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="content__sort" id="folders__sort"></div>
+               </div>
+
+               <div class="content__folders" id="content__folders">
+               </div>
+               <div class="content__paginator" id="folders__paginator"></div>
+            </div>
+
+      <!-- POSTS -->
+            <div class="main-content__header accordion__trigger">
+                  <div class="header__text" id="header__posts">Posts ({{ profile.getPosts().count() }})</div> 
+                  <i class="fas fa-chevron-down header__icon"></i>              
+            </div>
+
+            <div class="main-content__content accordion__content" id="main-content__posts">
+               <div class="content__control">
+                  <div class="content__add" id="posts_create">
+                     <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="content__sort" id="posts__sort"></div>
+               </div>
+               <div class="content__posts" id="content__posts"></div>
+               <div class="content__paginator" id="posts__paginator"></div>
+            </div>
+            </div>
+
+         <div id="box__modal"></div> 
+         <div id="box__modal-secondary"></div>  
+         <div id="box__modal-third"></div>      
+
+
+
+{% endblock body %}
+
+
+{% block javascripts %}
+   <script src="{{ asset('build/profile.js') }}"></script>
+{% endblock %}

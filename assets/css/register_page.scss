@@ -1,0 +1,109 @@
+@import "./variables";
+
+.box__main-content {
+   background: $color__content-bg;
+   padding: 10px 15px;
+   display: grid;
+   grid-template-rows: 40px 1fr;
+   grid-row-gap: 10px;
+   position: relative;
+   height: 600px;
+}
+
+.main-content__header {
+   height: 40px;
+   cursor: pointer;
+   color: $color__light-1;
+   background: $color__dark-2;
+   display: flex;
+   align-items: center;
+   padding: 5px 10px;
+   text-transform: uppercase;
+   font-size: 12px;
+   justify-content: space-between;
+}
+
+.main-content__body {
+   display: grid;
+   grid-template-rows: auto auto;
+   row-gap: 10px;
+   justify-content: center;
+   .box__flash-msg {
+      .flash__success {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background: #6ab04c;
+         font-size: 0.8rem;
+         color: $color__light-1;
+         padding: 10px;
+      }
+   }
+
+   .box__register-form {
+      grid-row: 2;
+      display: grid;
+      grid-template-rows: 70px 1fr;
+      row-gap: 20px;
+      width: 350px;
+      .row__box:nth-of-type(1) {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-end;
+         height: 60px;
+         padding: 20px;
+         border-bottom: 1px solid rgba(25, 25, 25, 0.2);
+         .text__left {
+            text-transform: uppercase;
+            font-weight: 600;
+         }
+         .link__register {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: $color__a;
+            &:visited {
+               color: $color__a;
+            }
+         }
+      }
+      .row__box:nth-of-type(2) {
+         .form__register {
+            display: grid;
+            row-gap: 20px;
+            .row__form {
+               display: grid;
+               row-gap: 5px;
+               input {
+                  height: 45px;
+                  width: 100%;
+                  border: 1px solid $color__grey-1;
+                  outline: $color__grey-1;
+                  border-radius: 20px;
+                  padding: 10px 15px;
+                  font-size: 1.1rem;
+               }
+               .error__input-error {
+                  font-size: 0.7rem;
+                  font-weight: 300;
+                  color: red;
+               }
+               .active__error {
+                  border: 2px solid rgba(255, 0, 0, 0.619);
+               }
+            }
+            .row__form:nth-of-type(3) {
+            }
+            .row__form:nth-of-type(6) {
+               .btn__register-form {
+                  height: 40px;
+                  width: 100%;
+                  color: $color__light-1;
+                  cursor: pointer;
+                  border: none;
+                  background: $color__dark-2;
+               }
+            }
+         }
+      }
+   }
+}

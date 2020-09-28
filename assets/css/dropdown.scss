@@ -1,0 +1,150 @@
+@import "./variables";
+
+/**
+* Dropdown-panel is rendered by dropdown.js function Icon
+*/
+
+.dropdown__panel {
+   background: transparent;
+   overflow: hidden;
+   position: absolute;
+   z-index: 21;
+   pointer-events: none;
+   span,
+   i,
+   p,
+   h5 {
+      pointer-events: none;
+   }
+   .dropdown__card {
+      width: 180px;
+      height: 120px;
+      transition: transform 0.5s ease;
+      transform: translate(0px, -255px);
+      .card__items {
+         pointer-events: all;
+         overflow: hidden;
+         border-radius: 10px;
+         width: 180px;
+         background: $color__grey-1;
+         // z-index: 10;
+         transition: 0.3s all ease-out;
+         color: #3a3b3c;
+         position: absolute;
+         .items__item {
+            pointer-events: all;
+            padding: 10px 20px;
+            display: grid;
+            grid-template-columns: 30px 1fr;
+            cursor: pointer;
+            &:hover {
+               background: #3a3b3c;
+               color: #c4c4c4;
+            }
+            i {
+               font-size: 1.1em;
+            }
+            span {
+               font-size: 0.8em;
+               font-weight: bold;
+            }
+         }
+      }
+   }
+}
+
+.comment__menu {
+   .dropdown__panel {
+      top: 50%;
+      right: 0px;
+   }
+}
+
+.dropdown__post {
+   .dropdown__panel {
+      top: 45px;
+      right: 0;
+   }
+}
+
+.dropdown__folder {
+   .dropdown__panel {
+      top: 30px;
+      right: 0px;
+   }
+}
+
+/**
+* Dropdown-simple is rendered by dropdown.js function Dropdown
+*/
+
+$font_size: 0.9em;
+$arrow_size: 25px;
+
+.dropdown-simple ::-webkit-scrollbar {
+   width: 8px;
+}
+
+.dropdown-simple ::-webkit-scrollbar-thumb {
+   background-color: #999;
+}
+
+.dropdown-simple {
+   text-align: left;
+   user-select: none;
+   cursor: pointer;
+   height: 40px;
+   line-height: 40px;
+   position: relative;
+   font-size: $font_size;
+   font-family: $font-1;
+   background: $color__grey-1;
+   color: $color__dark-2;
+   position: relative;
+   .dropdown__value {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      padding-left: 15px;
+      transform: translateY(-50%);
+      width: 100%;
+   }
+   .dropdown__arrow {
+      transition: all 0.2s ease;
+      position: absolute;
+      right: 5px;
+      top: 0px;
+      color: $color__dark-2;
+      font-size: $arrow_size;
+   }
+   .dropdown__panel {
+      position: absolute;
+      left: 0px;
+      background: transparent;
+      width: calc(100% + 8px);
+      z-index: 21;
+      height: 203px;
+      transform: translateY(50px);
+      overflow: hidden;
+      pointer-events: none;
+      .dropdown__items {
+         position: absolute;
+         pointer-events: all;
+         top: 0px;
+         max-height: 170px;
+         background: $color__grey-1;
+         transform: translate(0px, -200px);
+         transition: 0.3s all ease-out;
+         overflow-y: auto;
+         .dropdown__item {
+            padding: 0px 15px;
+            pointer-events: all !important;
+            z-index: 22;
+            &:hover {
+               background: $color__dark-2;
+               color: $color__grey-1;
+            }
+         }
+      }
+   }
+}

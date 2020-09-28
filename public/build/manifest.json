@@ -1,0 +1,15 @@
+{
+  "build/app.js": "/build/app.js",
+  "build/base.css": "/build/base.css",
+  "build/form_post.js": "/build/form_post.js",
+  "build/index.js": "/build/index.js",
+  "build/index_page.css": "/build/index_page.css",
+  "build/login.js": "/build/login.js",
+  "build/login_page.css": "/build/login_page.css",
+  "build/post.js": "/build/post.js",
+  "build/post_page.css": "/build/post_page.css",
+  "build/profile.js": "/build/profile.js",
+  "build/profile_page.css": "/build/profile_page.css",
+  "build/register.js": "/build/register.js",
+  "build/register_page.css": "/build/register_page.css"
+}

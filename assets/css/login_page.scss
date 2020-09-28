@@ -1,0 +1,175 @@
+@import "./variables";
+
+.box__main-content {
+   background: $color__content-bg;
+   padding: 10px 15px;
+   display: grid;
+   grid-template-rows: 40px 1fr;
+   grid-row-gap: 10px;
+   position: relative;
+   height: 600px;
+}
+
+.main-content__header {
+   height: 40px;
+   cursor: pointer;
+   color: $color__light-1;
+   background: $color__dark-2;
+   display: flex;
+   align-items: center;
+   padding: 5px 10px;
+   text-transform: uppercase;
+   font-size: 12px;
+   justify-content: space-between;
+}
+
+.main-content__body {
+   display: grid;
+   grid-template-columns: 1fr 300px;
+   align-items: center;
+
+   .box__login-form {
+      display: grid;
+      grid-template-rows: 60px 1fr;
+      row-gap: 20px;
+      width: 350px;
+      border-radius: 20px;
+      justify-self: center;
+      .row__box:nth-of-type(1) {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-end;
+         height: 60px;
+         padding: 20px;
+         border-bottom: 1px solid rgba(25, 25, 25, 0.2);
+         .text__left {
+            text-transform: uppercase;
+            font-weight: 600;
+         }
+         .link__register {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: $color__a;
+            &:visited {
+               color: $color__a;
+            }
+         }
+      }
+
+      .form__login {
+         display: grid;
+         row-gap: 20px;
+         .row__form input {
+            height: 45px;
+            width: 100%;
+            border: 1px solid $color__grey-1;
+            outline: $color__grey-1;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 1.1rem;
+         }
+         .row__form:nth-of-type(3) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            .label__checkbox {
+               display: grid;
+               grid-template-columns: auto auto;
+               align-items: end;
+               column-gap: 8px;
+               font-size: 0.8rem;
+               font-weight: 300;
+               cursor: pointer;
+               user-select: none;
+               input {
+                  position: absolute;
+                  opacity: 0;
+                  cursor: pointer;
+                  height: 0;
+                  width: 0;
+               }
+               .checkmark {
+                  position: relative;
+                  top: 0;
+                  left: 0;
+                  height: 25px;
+                  width: 25px;
+                  // background-color: #2196f3;
+                  border: 1px solid $color__grey-1;
+                  border-radius: 5px;
+               }
+               .checkmark:after {
+                  content: "";
+                  position: absolute;
+                  display: none;
+               }
+
+               /* Show the checkmark when checked */
+               input:checked ~ .checkmark:after {
+                  display: block;
+               }
+
+               /* Style the checkmark/indicator */
+               .checkmark:after {
+                  left: 9px;
+                  top: 4px;
+                  width: 5px;
+                  height: 10px;
+                  border: solid $color__dark-2;
+                  border-width: 0 3px 3px 0;
+                  transform: rotate(45deg);
+               }
+            }
+
+            .link__forgot {
+               font-size: 0.8rem;
+               font-weight: 300;
+               color: $color__a;
+               &:visited {
+                  color: $color__a;
+               }
+            }
+         }
+         .row__form:nth-of-type(4) {
+            .btn__login-form {
+               height: 40px;
+               width: 150px;
+               color: $color__light-1;
+               cursor: pointer;
+               border: none;
+               background: $color__dark-2;
+            }
+         }
+      }
+
+      .row__box:nth-of-type(3) {
+         color: red;
+         font-size: 0.9rem;
+      }
+   }
+
+   .box__info {
+      justify-self: center;
+      display: grid;
+      font-size: 0.8rem;
+      align-items: center;
+      grid-template-rows: 40px 20px 20px 40px;
+      row-gap: 5px;
+      .info__row {
+         .info__text {
+            color: $color__error-1;
+         }
+         .btn__info {
+            height: 40px;
+            width: 150px;
+            color: #d8e6eb;
+            cursor: pointer;
+            border: none;
+            background: #2f3640;
+         }
+         span:nth-of-type(1) {
+            font-weight: 600;
+         }
+      }
+   }
+}
