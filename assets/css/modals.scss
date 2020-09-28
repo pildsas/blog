@@ -918,6 +918,7 @@
 .style-class__tagged-post {
    width: 800px;
    color: $color__dark-2;
+   max-height: 95vh;
    .modal__header {
       .text__modal-header {
          font-size: 1.5rem;
@@ -928,6 +929,8 @@
       }
    }
    .modal__body {
+      max-height: 85vh;
+      overflow: hidden;
       .content__control {
          display: flex;
          justify-content: flex-end;
