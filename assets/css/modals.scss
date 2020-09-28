@@ -919,6 +919,7 @@
    width: 800px;
    color: $color__dark-2;
    max-height: 95vh;
+   overflow: hidden;
    .modal__header {
       .text__modal-header {
          font-size: 1.5rem;
@@ -936,8 +937,7 @@
          justify-content: flex-end;
       }
       .content__posts {
-         min-height: 400px;
-         margin-top: 20px;
+         padding: 20px 0;
          display: grid;
          grid-template-columns: repeat(auto-fill, minmax(230px, 0.8fr));
          grid-gap: 20px;
