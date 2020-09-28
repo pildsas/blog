@@ -10,7 +10,9 @@ The preferred way of viewing the project is by loading data fixtures.
     ServerName localhost
 </VirtualHost>
 
-2. To set database, configure .env file in main project directory.
+2. Install PHP dependencies with composer, in project directory run composer install.
+
+3. To set database, configure .env file in main project directory.
 default settings: user – root, password – "", db – blog
 
 
