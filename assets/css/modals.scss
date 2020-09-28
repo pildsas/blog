@@ -13,6 +13,7 @@
    border-radius: 10px;
    z-index: 9999;
    font-family: "Montserrat", sans-serif;
+
    input[type="file"] {
       display: none;
    }
@@ -322,7 +323,15 @@
 .style-class__create-post,
 .style-class__edit-post {
    max-width: 750px;
+   max-height: 85vh;
    overflow: hidden;
+   overflow-y: scroll;
+   &::-webkit-scrollbar {
+      width: 8px;
+   }
+   &::-webkit-scrollbar-thumb {
+      background-color: #999;
+   }
    .modal__body {
       height: 820px;
       overflow: hidden;
