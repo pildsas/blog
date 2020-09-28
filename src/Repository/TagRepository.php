@@ -45,7 +45,7 @@ class TagRepository extends ServiceEntityRepository
                 ->orderBy('t.name', 'ASC');
         }
 
-        $pagination = $this->paginator->paginate($qb, $page, 12);
+        $pagination = $this->paginator->paginate($qb, $page, 8);
         return $pagination;
     }
 }
