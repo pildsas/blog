@@ -9,12 +9,12 @@ DocumentRoot "C:\xampp\htdocs\blog\public"
 ServerName localhost
 </VirtualHost>
 
-2. Install PHP dependencies with composer, in project main directory run composer install (some dependecies require active database connection).
+2. Configure .env file in main project directory to set database connection.
+   default settings: user – root, password – "", host – 127.0.0.1:3306, db – blog
 
-3. To set database, configure .env file in main project directory.
-   default settings: user – root, password – "", db – blog
+3. Install PHP dependencies with composer, in project main directory run composer install (some dependecies require database running).
 
-Once the .env file is configured and virtual host is set, generate database and load data fixtures by the following commands:
+Once the .env file is configured, virtual host is set and dependecies installed, generate database and load data fixtures by the following commands:
 
 sequentially:
 
