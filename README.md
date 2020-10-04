@@ -19,17 +19,18 @@ Once the .env file is configured, virtual host is set and dependecies installed,
 sequentially:
 
 php bin/console doctrine:database:create
-bin/console doctrine:schema:drop -n -q --force --full-database
-rm src/Migrations/\*.php
+php bin/console doctrine:schema:drop -n -q --force --full-database
+rm -rf src/Migrations/*.php
 php bin/console make:migration
 php bin/console doctrine:migrations:migrate -n -q
-bin/console doctrine:fixtures:load -n -q
+php bin/console doctrine:fixtures:load -n -q
+
 
 all at once:
 
 php bin/console doctrine:database:create &&
-bin/console doctrine:schema:drop -n -q --force --full-database &&
-rm src/Migrations/\*.php &&
+php bin/console doctrine:schema:drop -n -q --force --full-database && 
+rm -rf src/Migrations/*.php &&
 php bin/console make:migration &&
 php bin/console doctrine:migrations:migrate -n -q &&
-bin/console doctrine:fixtures:load -n -q
+php bin/console doctrine:fixtures:load -n -q
